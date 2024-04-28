@@ -304,11 +304,50 @@ docker logs -f dify-on-wechat  # 查看二维码并登录
 
 #### 2.5.1. 创建工作流应用
 
-待更新~
+<figure><img src="../../.gitbook/assets/dify-on-wechat/create-workflow.jpg" alt=""><figcaption></figcaption></figure>
 
-#### 2.5.2. 接入微信
+首先你需要提前下载好我预先创建的DSL文件，[点击此处下载](https://github.com/hanfangyuan4396/dify-on-wechat/blob/master/dsl/chat-workflow.yml)。下载完成后，进入工作室页面，点击导入DSL文件，上传提前下载好的文件，最后点击创建。
 
-待更新~
+<figure><img src="../../.gitbook/assets/dify-on-wechat/test-workflow.jpg" alt=""><figcaption></figcaption></figure>
+
+创建完成后，按照上图步骤进行测试。点击运行，输入你好，确保该工作流能正常输出结果。
+
+你可以在此工作流的基础上进行修改，但是对于**工作流类型**的应用，它的输入变量名称十分灵活，，为了更方便地接入微信机器人，[Dify on WeChat](https://github.com/hanfangyuan4396/dify-on-wechat)项目约定**工作流类型**的应用**输入变量命名为`query`**，**输出变量命名为`text`**。
+
+<figure><img src="../../.gitbook/assets/dify-on-wechat/publish-workflow.jpg" alt=""><figcaption></figcaption></figure>
+
+测试没有问题后，按照上图步骤发布应用，依次点击发布、更新、访问API。
+
+#### 2.5.2. 生成工作流API密钥
+
+我们同样参照**2.1.1小节（4）**获取**工作流**应用的**API密钥**与**API服务器地址**。
+
+#### 2.5.3. 接入微信
+
+我们在项目根目录创建名为config.json的文件，文件内容如下，同样把**dify_api_base**配置为**工作流**应用的API服务器地址；**dify_api_key**配置为**工作流**应用的API密钥，注意该应用为**工作流**类型应用，还需要把**dify_app_type**设置为**workflow**，其他配置保持不变
+
+```bash
+  {
+    "dify_api_base": "https://api.dify.ai/v1",
+    "dify_api_key": "app-xxx",
+    "dify_app_type": "workflow",
+    "channel_type": "wx",
+    "model": "dify",
+    "single_chat_prefix": [""],
+    "single_chat_reply_prefix": "",
+    "group_chat_prefix": ["@bot"],
+    "group_name_white_list": ["ALL_GROUP"]
+ }
+
+```
+
+同样参照**2.2.1小节**启动程序并扫码登录，然后给微信机器人发送消息，进行测试。
+
+<figure><img src="../../.gitbook/assets/dify-on-wechat/workflow-on-wechat.jpg" alt=""><figcaption></figcaption></figure>
+
+可以看到机器人成功接通了工作流api并进行了回复，至此我们已经完全掌握了如何创建Dify所有类型的应用：基础聊天助手、工作流聊天助手、智能助手、工作流，我们也学会了如何把上述应用发布为API，并接入微信。
+
+接下来我将会介绍如何把应用接入到微信的其他通道，如公众号、企业微信应用、企业微信客服等。
 
 ## 3. Dify接入公众号
 
