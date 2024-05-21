@@ -158,12 +158,24 @@ VECTOR_STORE: weaviate
 flask vdb-migrarte # or docker exec -it docker-api-1 flask vdb-migrarte
 ```
 
-### 16. Why is SYS\_ADMIN permission needed?
+### 16. Why is SSRF_PROXY Needed?
 
-#### Why does the sandbox service need SYS\_ADMIN permission?
+You may have noticed the `SSRF_PROXY` environment variable in the `docker-compose.yaml` file. This is crucial because the local deployment of Dify uses `SSRF_PROXY` to prevent Server-Side Request Forgery (SSRF) attacks. For more details on SSRF attacks, refer to [this resource](https://portswigger.net/web-security/ssrf).
 
-The sandbox service is based on `Seccomp` for sandbox isolation, but also, Docker is based on `Seccomp` for resource isolation. In Docker, Linux Seccomp BPF is disabled by default, which prevents the use of `Seccomp` in containers, so SYS\_ADMIN permission is required to enable `Seccomp`.
+To reduce potential risks, we have set up a proxy for all services that could be vulnerable to SSRF attacks. This proxy ensures that services like Sandbox can only access external networks through it, thereby protecting your data and services. By default, this proxy does not intercept any local requests. However, you can customize the proxy's behavior by modifying the `squid` configuration file.
 
-#### How does the sandbox service ensure security?
+#### How to Customize the Proxy Behavior?
 
-As for the security of the sandbox service, we disabled all `file system`, `network`, `IPC`, `PID`, `user`, `mount`, `UTS`, and system access capabilities of all processes in the sandbox to ensure that malicious code is not executed. At the same time, we also isolate the files and network in the container to ensure that even if the code is executed, it cannot harm the system.
+In the `docker/volumes/ssrf_proxy/squid.conf` file, you will find the configuration settings for the proxy. For example, if you want to allow the `192.168.101.0/24` network to be accessed by the proxy, but restrict access to an IP address `192.168.101.19` that contains sensitive data, you can add the following rules to `squid.conf`:
+
+```plaintext
+acl restricted_ip dst 192.168.101.19
+acl localnet src 192.168.101.0/24
+
+http_access deny restricted_ip
+http_access allow localnet
+http_access deny all
+```
+
+This is a basic example, and you can customize the rules to fit your specific needs. For more information about configuring `squid`, refer to the [official documentation](http://www.squid-cache.org/Doc/config/).
+
