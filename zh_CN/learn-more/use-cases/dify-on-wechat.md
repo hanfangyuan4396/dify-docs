@@ -149,7 +149,33 @@ cd dify-on-wechat
 nohup python3 app.py & tail -f nohup.out   # 在后台运行程序并通过日志输出二维码
 ```
 
-2. docker部署
+2. docker compose部署
+
+容器的**环境变量**会**覆盖**config.json文件的配置，请修改docker/docker-compose.yml文件环境变量为你实际的配置，配置方法与**2.1.1小节(4)**
+的config.json配置一致。
+
+请确保正确配置**DIFY_API_BASE**, **DIFY_API_KEY**与**DIFY_APP_TYPE**环境变量。
+
+```yaml
+version: '2.0'
+services:
+  dify-on-wechat:
+    image: hanfangyuan/dify-on-wechat
+    container_name: dify-on-wechat
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      DIFY_API_BASE: 'https://api.dify.ai/v1'
+      DIFY_API_KEY: 'app-xx'
+      DIFY_APP_TYPE: 'chatbot'
+      MODEL: 'dify'
+      SINGLE_CHAT_PREFIX: '[""]'
+      SINGLE_CHAT_REPLY_PREFIX: '""'
+      GROUP_CHAT_PREFIX: '["@bot"]'
+      GROUP_NAME_WHITE_LIST: '["ALL_GROUP"]'
+```
+
+然后执行如下命令启动容器
 
 ```bash
 cd dify-on-wechat/docker       # 进入docker目录
