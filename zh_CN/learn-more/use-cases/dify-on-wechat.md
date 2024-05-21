@@ -100,10 +100,12 @@ pip3 install -r requirements-optional.txt # 国内可以在该命令末尾添加
 
 ##### （3）填写配置文件
 
-我们在项目根目录创建名为config.json的文件，文件内容如下，我们在**2.1.1小节（4）**最后保存了**API密钥**与**API服务器地址**，请把**dify_api_base**配置为**API服务器地址**；**dify_api_key**配置为**API密钥**其他配置保持不变
+我们在项目根目录创建名为config.json的文件，文件内容如下，我们在**2.1.1小节（4）**最后保存了**API密钥**与**API服务器地址**，请把**dify_api_base**配置为**API服务器地址**；**dify_api_key**配置为**API密钥**其他配置保持不变。
+
+(PS: 很多朋友可能并不是严格按照我教程给出的步骤创建**聊天助手类型**的Dify应用，在此特别说明一下**dify_app_type**配置方法，如果你创建了**聊天助手**应用请配置为**chatbot**；创建了**Agent**应用请配置为**agent**; 创建了**工作流**应用请配置为**workflow**。)
 
 ```bash
-{ 
+{
   "dify_api_base": "https://api.dify.ai/v1",
   "dify_api_key": "app-xxx",
   "dify_app_type": "chatbot",
