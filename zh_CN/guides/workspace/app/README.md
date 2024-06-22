@@ -4,7 +4,7 @@
 
 在**发现**中，提供了一些常用的模版应用。这些应用涵盖了人力资源，助手，翻译，编程和写作。
 
-<figure><img src="../../../explore/images/explore-app.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
 
 如果要使用某个模版应用，点击模版的“添加到工作区”按钮。在左侧的工作区中，可以使用该应用。
 

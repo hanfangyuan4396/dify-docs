@@ -5,16 +5,20 @@
 * 如果你使用的是自部署的开源版，该应用将运行在你的服务器上
 * 如果你使用的是云服务，该应用将托管至 Udify.app
 
+***
+
 ### 发布 AI 站点
 
 在应用概览页中，你可以找到关于AI 站点（WebApp）的卡片。只需开启 WebApp 的访问，就可以得到一个可分享可分享给用户的链接了。
 
-<figure><img src="../../../.gitbook/assets/app-share.png" alt=""><figcaption><p>分享应用</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (244).png" alt=""><figcaption></figcaption></figure>
 
 我们对以下两种应用均提供了一个漂亮的 WebApp 界面：
 
-* 文本生成型（前往预览）
-* 对话型（前往预览）
+* 文本生成型（[前往预览](text-generator.md)）
+* 对话型（[前往预览](conversation-application.md)）
+
+***
 
 ### 设置你的 AI 站点
 
@@ -26,6 +30,13 @@
 * 界面语言
 * 版权信息
 * 隐私政策链接
+* 自定义免责声明
+
+{% hint style="info" %}
+界面语言目前已支持：英文，中文，繁体中文，葡萄牙语，德语，日本语，韩语，乌克兰语，越难语。如果您需要增加更多语言，可以在 GitHub 内提交 Issue[ 寻求支持](../../../community/support.md)或者提交 PR 贡献代码。
+{% endhint %}
+
+***
 
 ### 嵌入你的 AI 站点
 

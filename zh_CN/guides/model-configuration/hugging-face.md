@@ -24,11 +24,11 @@ Dify 支持用两种方式接入 Hugging Face 上的模型：
 
 模型详情页右侧有包含 Hosted inference API 的 区域才支持 Hosted inference API 。如下图所：
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 在模型详情页，可以获得模型的名称。
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 2 在 Dify 中使用接入模型
 

@@ -15,7 +15,7 @@ Dify 基于“**后端即服务**”理念为所有应用提供了 API，为 AI 
 
 选择一个应用，在应用（Apps）左侧导航中可以找到**访问 API（API Access）**。在该页面中你可以查看 Dify 提供的 API 文档，并管理可访问 API 的凭据。
 
-<figure><img src="../../.gitbook/assets/service-api-page.png" alt=""><figcaption><p>访问 API 文档</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>访问 API</p></figcaption></figure>
 
 例如你是一个咨询公司的开发部分，你可以基于公司的私有数据库提供 AI 能力给终端用户或开发者，但开发者无法掌握你的数据和 AI 逻辑设计，从而使得服务可以安全、可持续的交付并满足商业目的。
 
@@ -32,8 +32,9 @@ Dify 基于“**后端即服务**”理念为所有应用提供了 API，为 AI 
 你可以在**应用 -> 访问 API** 中找到该应用的 API 文档与范例请求。
 
 例如，创建文本补全信息的 API 的调用示例：
+
 {% tabs %}
-{% tab title="cURL" %} 
+{% tab title="cURL" %}
 ```
 curl --location --request POST 'https://api.dify.ai/v1/completion-messages' \
 --header 'Authorization: Bearer ENTER-YOUR-SECRET-KEY' \
@@ -46,7 +47,7 @@ curl --location --request POST 'https://api.dify.ai/v1/completion-messages' \
 ```
 {% endtab %}
 
-{% tab title="Python" %} 
+{% tab title="Python" %}
 ```python
 import requests
 import json
@@ -71,7 +72,6 @@ print(response.text)
 {% endtab %}
 {% endtabs %}
 
-
 ### 对话型应用
 
 可用于大部分场景的对话型应用，采用一问一答模式与用户持续对话。要开始一个对话请调用 chat-messages 接口，通过继续传入返回的 conversation\_id 可持续保持该会话。
@@ -79,8 +79,9 @@ print(response.text)
 你可以在**应用 -> 访问 API** 中找到该应用的 API 文档与范例请求。
 
 例如，发送对话信息的 API的调用示例：
+
 {% tabs %}
-{% tab title="cURL" %} 
+{% tab title="cURL" %}
 ```
 curl --location --request POST 'https://api.dify.ai/v1/chat-messages' \
 --header 'Authorization: Bearer ENTER-YOUR-SECRET-KEY' \
@@ -96,7 +97,7 @@ curl --location --request POST 'https://api.dify.ai/v1/chat-messages' \
 ```
 {% endtab %}
 
-{% tab title="Python" %} 
+{% tab title="Python" %}
 ```python
 import requests
 import json

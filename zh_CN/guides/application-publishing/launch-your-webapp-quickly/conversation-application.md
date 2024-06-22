@@ -13,7 +13,7 @@
 
 如你在应用编排时有设置变量的填写要求，则在对话前需要按提示填写信息才可进入对话窗口：
 
-<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (63).png" alt="" width="375"><figcaption></figcaption></figure>
 
 填写必要内容，点击 “开始对话” 按钮，开始聊天。
 
@@ -27,7 +27,7 @@
 
 点击 “新对话” 按钮开始一个新的对话。移动到一个会话上，可以对会话进行 “置顶” 和 “删除” 操作。
 
-<figure><img src="../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (47).png" alt="" width="242"><figcaption></figcaption></figure>
 
 ### 对话开场白
 
@@ -47,10 +47,4 @@
 
 _请注意确保你使用的设备环境已经授权使用麦克风。_
 
-<figure><img src="../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
-
-### 引用和归属
-
-若在应用编排时开启了「引用和归属」功能，则对话返回时，会自动展示引用的数据集文档来源。
-
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption><p>引用和归属</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (79).png" alt="" width="375"><figcaption></figcaption></figure>

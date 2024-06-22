@@ -4,7 +4,7 @@
 
 混合检索能够结合不同检索技术的优势获得更好的召回结果，但在不同检索模式下的查询结果需要进行合并和归一化（将数据转换为统一的标准范围或分布，以便更好地进行比较、分析和处理），然后再一起提供给大模型。这时候我们需要引入一个评分系统：重排序模型（Rerank Model）。
 
-**重排序模型通过将候选文档列表与用户问题语义匹配度进行重新排序，从而改进语义排序的结果**。其原理是计算用户问题与给定的每个候选文档之间的相关性分数，并返回按相关性从高到低排序的文档列表。常见的 Rerank 模型如：Cohere rerank、bge-reranker 等。
+**重排序模型会计算候选文档列表与用户问题的语义匹配度，根据语义匹配度重新进行排序，从而改进语义排序的结果**。其原理是计算用户问题与给定的每个候选文档之间的相关性分数，并返回按相关性从高到低排序的文档列表。常见的 Rerank 模型如：Cohere rerank、bge-reranker 等。
 
 <figure><img src="../../../.gitbook/assets/image (128).png" alt=""><figcaption><p>混合检索+重排序</p></figcaption></figure>
 
@@ -38,7 +38,7 @@ Dify 目前已支持 Cohere Rerank 模型，通过进入“模型供应商-> Coh
 
 通过进入“数据集->创建数据集->检索设置”页面并在添加 Rerank 设置。除了在创建数据集可以设置 Rerank ，你也可以在已创建的数据集设置内更改 Rerank 配置，在应用编排的数据集召回模式设置中更改 Rerank 配置。
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption><p>数据集检索模式中设置 Rerank 模型</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption><p>数据集检索模式中设置 Rerank 模型</p></figcaption></figure>
 
 \*\*TopK：\*\*用于设置 Rerank 后返回相关文档的数量。
 
@@ -50,4 +50,4 @@ Dify 目前已支持 Cohere Rerank 模型，通过进入“模型供应商-> Coh
 
 关于多路召回模式的说明：🔗
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>数据集多路召回模式中设置 Rerank 模型</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>数据集多路召回模式中设置 Rerank 模型</p></figcaption></figure>

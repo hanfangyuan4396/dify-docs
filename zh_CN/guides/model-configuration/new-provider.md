@@ -1,24 +1,26 @@
 # 增加新供应商
 
+### 供应商配置方式
+
 供应商支持三种模型配置方式：
 
-*   `predefined-model`预定义模型
+**预定义模型（predefined-model）**
 
-    表示用户只需要配置统一的供应商凭据即可使用供应商下的预定义模型。
-*   `customizable-model`自定义模型
+表示用户只需要配置统一的供应商凭据即可使用供应商下的预定义模型。
 
-    用户需要新增每个模型的凭据配置，如 Xinference，它同时支持 LLM 和 Text Embedding，但是每个模型都有唯一的 **model\_uid**，如果想要将两者同时接入，就需要为每个模型配置一个 **model\_uid**。
-*   `fetch-from-remote`从远程获取
+**自定义模型（customizable-model）**
 
-    与 `predefined-model`配置方式一致，只需要配置统一的供应商凭据即可，模型通过凭据信息从供应商获取。
+用户需要新增每个模型的凭据配置，如 Xinference，它同时支持 LLM 和 Text Embedding，但是每个模型都有唯一的 **model\_uid**，如果想要将两者同时接入，就需要为每个模型配置一个 **model\_uid**。
 
-    如OpenAI，我们可以基于 gpt-turbo-3.5 来 Fine Tune 多个模型，而他们都位于同一个 **api\_key** 下，当配置为`fetch-from-remote`时，开发者只需要配置统一的 **api\_key** 即可让 Dify Runtime 获取到开发者所有的微调模型并接入 Dify。
+**从远程获取（fetch-from-remote）**
+
+与 `predefined-model`配置方式一致，只需要配置统一的供应商凭据即可，模型通过凭据信息从供应商获取。
+
+如OpenAI，我们可以基于 gpt-turbo-3.5 来 Fine Tune 多个模型，而他们都位于同一个 **api\_key** 下，当配置为`fetch-from-remote`时，开发者只需要配置统一的 **api\_key** 即可让 Dify Runtime 获取到开发者所有的微调模型并接入 Dify。
 
 这三种配置方式**支持共存**，即存在供应商支持`predefined-model` + `customizable-model` 或 `predefined-model` + `fetch-from-remote`等，也就是配置了供应商统一凭据可以使用预定义模型和从远程获取的模型，若新增了模型，则可以在此基础上额外使用自定义的模型。
 
-### 开始
-
-#### 介绍
+### 配置说明
 
 **名词解释**
 
@@ -28,7 +30,7 @@
 
 新增一个供应商主要分为几步，这里简单列出，帮助大家有一个大概的认识，具体的步骤会在下面详细介绍。
 
-* 创建供应商 yaml 文件，根据 [Provider Schema](https://github.com/langgenius/dify/blob/main/api/core/model\_runtime/docs/zh\_Hans/schema.md)  编写。
+* 创建供应商 yaml 文件，根据 [Provider Schema](https://github.com/langgenius/dify/blob/main/api/core/model\_runtime/docs/zh\_Hans/schema.md) 编写。
 * 创建供应商代码，实现一个`class`。
 * 根据模型类型，在供应商`module`下创建对应的模型类型 `module`，如`llm`或`text_embedding`。
 * 根据模型类型，在对应的模型`module`下创建同名的代码文件，如`llm.py`，并实现一个`class`。
@@ -135,7 +137,7 @@ class XinferenceProvider(Provider):
 
 **预定义模型供应商**
 
-供应商需要继承 `__base.model_provider.ModelProvider` 基类，实现 `validate_provider_credentials` 供应商统一凭据校验方法即可，可参考 [AnthropicProvider](https://github.com/langgenius/dify/blob/main/api/core/model_runtime/model_providers/anthropic/anthropic.py)。
+供应商需要继承 `__base.model_provider.ModelProvider` 基类，实现 `validate_provider_credentials` 供应商统一凭据校验方法即可，可参考 [AnthropicProvider](https://github.com/langgenius/dify/blob/main/api/core/model\_runtime/model\_providers/anthropic/anthropic.py)。
 
 ```python
 def validate_provider_credentials(self, credentials: dict) -> None:
